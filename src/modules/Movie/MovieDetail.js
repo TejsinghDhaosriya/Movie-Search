@@ -10,6 +10,8 @@ import {
   CardActionArea,
   CardMedia,
   IconButton,
+  Typography,
+  Divider,
 } from "@material-ui/core/";
 import { Link } from "react-router-dom";
 import { Movie } from "@material-ui/icons/";
@@ -57,11 +59,12 @@ export default function MovieDetail() {
             </CardActionArea>
           </Card>
           <DialogContentText id="alert-dialog-slide-description">
-            <h3>OverView</h3>
-            <p>{current.overview}</p>
-            <hr></hr>
-            <h3>Rating : {current.vote_average}</h3>
-            <h3>Release Date : {current.release_date}</h3>
+          <Divider/>
+            <Typography>OverView</Typography>
+            <Typography>{current.overview}</Typography>
+            <Divider/>
+            <Typography>Rating : {current.vote_average}</Typography>
+            <Typography>Release Date : {current.release_date}</Typography>
           </DialogContentText>
         </DialogContent>
       </Dialog>
