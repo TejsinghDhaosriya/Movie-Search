@@ -3,7 +3,7 @@
 
 ## Objective of Project 
 
-• Move Search  <br/>
+• Movie Search  <br/>
 • Enabling Dark Mode
 • Using of Context API
 
