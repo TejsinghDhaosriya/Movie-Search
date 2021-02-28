@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
@@ -7,17 +6,21 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-import Movie from "./modules/index";
-import { MovieProvider } from "./contexts/MovieContext";
+import Movie from "./modules/Movie";
+import { RootProvider } from "./context";
 import { withTheme } from "./theme";
-import NavBar from "./modules/NavBar";
+import NavBar from "./components/NavBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: "100%",
+    height: "100%",
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: theme.spacing(2), // Material UI spacing
+    },
     backgroundColor: theme.palette.background.paper, // Makes it the same color as the paper color
     backgroundImage: `url(${"https://www.transparenttextures.com/patterns/cubes.png"})`,
   },
-
 }));
 
 function App(props) {
@@ -27,7 +30,7 @@ function App(props) {
   const { darkMode, setDarkMode } = props;
 
   return (
-    <MovieProvider>
+    <RootProvider>
       <Grid
         className={classes.root}
         container
@@ -50,15 +53,10 @@ function App(props) {
           />
         </Grid>
         <Grid item>
-          <Route
-            exact
-            path="/"
-            component={() => <Redirect to="/moviecart" />}
-          />
-          <Route component={Movie} path="/moviecart" />
+          <Movie />
         </Grid>
       </Grid>
-    </MovieProvider>
+    </RootProvider>
   );
 }
 
