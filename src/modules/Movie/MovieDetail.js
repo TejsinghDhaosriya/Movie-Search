@@ -60,7 +60,7 @@ export default function MovieDetail() {
           </Card>
           <DialogContentText id="alert-dialog-slide-description">
           <Divider/>
-            <Typography>OverView</Typography>
+            <Typography>Summary</Typography>
             <Typography>{current.overview}</Typography>
             <Divider/>
             <Typography>Rating : {current.vote_average}</Typography>
